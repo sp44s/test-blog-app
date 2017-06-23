@@ -1,21 +1,14 @@
 
-<html>
-    <head>
-        <title>Django Blog App</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="">Django Blog App</a></h1>
-        </div>
+{% extends 'blog/base.html' %}
 
-        <div>
-            {% for item in NamedPosts %}
-            <div>
+{% block content %}
+    {% for item in NamedPosts %}
+        <div class="post">
+            <div class="date">
                 <p>published: {{ item.published_date }}</p>
-                <h1><a href="">{{ item.title }}</a></h1>
-                <p>{{ item.text|linebreaksbr }}</p>
             </div>
-            {% endfor %}
+            <h1><a href="{% url 'post_detail' pk=item.pk %}">{{ item.title }}</a></h1>
+            <p>{{ item.text|linebreaksbr }}</p>
         </div>
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
