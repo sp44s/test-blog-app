@@ -1,0 +1,21 @@
+
+<html>
+    <head>
+        <title>Django Blog App</title>
+    </head>
+    <body>
+        <div>
+            <h1><a href="">Django Blog App</a></h1>
+        </div>
+
+        <div>
+            {% for item in NamedPosts %}
+            <div>
+                <p>published: {{ item.published_date }}</p>
+                <h1><a href="">{{ item.title }}</a></h1>
+                <p>{{ item.text|linebreaksbr }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
